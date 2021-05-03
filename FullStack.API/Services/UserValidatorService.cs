@@ -13,7 +13,7 @@ namespace FullStack.API.Services
     public interface IUserValidator
     {
         public IEnumerable<ValidationResult> Validate(string password);
-        public IEnumerable<ValidationResult> Validate(AuthenticationRequestModel model);
+        public IEnumerable<ValidationResult> Validate(UserAuthenticateRequestModel model);
         public IEnumerable<ValidationResult> Validate(UserCreateUpdateModel model);
     }
 
@@ -24,7 +24,7 @@ namespace FullStack.API.Services
             var passwordResult = ValidatePassword(password);
             if (passwordResult != null) yield return passwordResult;
         }
-        public IEnumerable<ValidationResult> Validate(AuthenticationRequestModel model)
+        public IEnumerable<ValidationResult> Validate(UserAuthenticateRequestModel model)
         {
             var emailResult = ValidateEmail(model.Email);
             if (emailResult != null) yield return emailResult;
@@ -147,7 +147,7 @@ namespace FullStack.API.Services
         {
             if (phoneNumber != null && phoneNumber.Length < 6)
             {
-                return new ValidationResult(nameof(phoneNumber), "Phone number must contain at least 6 characters. ");
+                return new ValidationResult(nameof(phoneNumber),"Phone number must contain at least 6 characters. ");
             }
             if (phoneNumber != null && phoneNumber.Length > 30)
             {

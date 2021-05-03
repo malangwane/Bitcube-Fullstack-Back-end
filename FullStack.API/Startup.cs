@@ -50,6 +50,10 @@ namespace FullStack.API
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserValidator, UserValidator>();
             services.AddScoped<IUserMapper, UserMapper>();
+
+            services.AddScoped<IAdvertService, AdvertService>();
+            services.AddScoped<IAdvertValidator, AdvertValidator>();
+            services.AddScoped<IAdvertMapper, AdvertMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

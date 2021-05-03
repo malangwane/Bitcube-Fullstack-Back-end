@@ -27,4 +27,8 @@
     <ProjectReference Include="..\FullStack.ViewModels\FullStack.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

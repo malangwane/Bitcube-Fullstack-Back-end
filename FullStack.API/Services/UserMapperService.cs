@@ -11,9 +11,9 @@ namespace FullStack.API.Services
     {
         User EntityMapper(UserCreateUpdateModel model);
         UserViewModel ViewMapper(User entity);
-        AuthenticationResponseModel AuthenticateMapper(User entity, string token);
+        UserAuthenticateResponseModel AuthenticateMapper(User entity, string token);
     }
-    public class UserMapper : IUserMapper
+    public class UserMapper: IUserMapper
     {
         public User EntityMapper(UserCreateUpdateModel model)
         {
@@ -43,9 +43,9 @@ namespace FullStack.API.Services
             };
         }
 
-        public AuthenticationResponseModel AuthenticateMapper(User entity, string token)
+        public UserAuthenticateResponseModel AuthenticateMapper(User entity, string token)
         {
-            return new AuthenticationResponseModel()
+            return new UserAuthenticateResponseModel()
             {
                 Id = entity.Id,
                 FirstName = entity.FirstName,
